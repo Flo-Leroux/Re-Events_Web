@@ -4,11 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Re-Event</title>
-    <link rel="stylesheet" href="css/uikit.min.css" />
-    <link rel="stylesheet" href="css/index.css" />
-    <script src="js/uikit.min.js"></script>
-    <script src="js/uikit-icons.min.js"></script>
 
+    <!-- Add UI Kit -->
+    <link rel="stylesheet" href="deploy/uiKit/uikit.min.css" />
+    <script src="deploy/uiKit/uikit.min.js"></script>
+    <script src="deploy/uiKit/uikit-icons.min.js"></script>
+    
+    <!-- Add Firebase -->
     <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
     <!-- update the version number as needed 
     <script defer src="/__/firebase/4.8.0/firebase-app.js"></script>-->
@@ -24,42 +26,46 @@
     <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-messaging.js"></script>
+
+    <!-- Add My Styles -->
+    <link rel="stylesheet" href="index.css" />
   </head>
+  
   <body>
-      <div data-uk-sticky>
-          <nav class="uk-navbar-container" uk-navbar>
-              <div class="uk-navbar-left">
-                  <a class="uk-navbar-item uk-logo" href="index.php">Re-Event</a>
-              </div>
-              <div class="uk-navbar-right">
-                  <a class="uk-navbar-item" href="connexion.html">
-                  <span class="uk-icon uk-margin-small-right" uk-icon="icon: sign-in"></span>
-                  Connexion</a>
-                  <a class="uk-navbar-item" href="inscription.html">
-                  <span class="uk-icon uk-margin-small-right" uk-icon="icon: users"></span>
-                  Inscription</a>
-              </div>
-          </nav>
-      </div>
-      
-      <div class="uk-cover-background">
-        <img src="img/info.jpg">
-        <div class="uk-position-cover uk-flex uk-flex-center uk-flex-middle uk-text-center">
-          <div class="uk-overlay uk-position-top-center">
-            <h1>Re-Event </h1>
-          </div>
-          <div class="uk-overlay uk-position-top-center">
-            <h2>Découvre, partage des évenements proche de toi!</h2>
-          </div>
-          <div class="uk-overlay uk-position-top-center">
-            <p>Re-Events organise tes sorties<br>
-              Sort librement avec Re-Events</p>
-          </div>
-          <div class="uk-overlay uk-position-top-center">
-            <button class="uk-button uk-button-default" uk-toggle="target: .presentation">Utilisateurs</button>
-          </div>   
+    <div data-uk-sticky>
+        <nav class="uk-navbar-container" uk-navbar>
+            <div class="uk-navbar-left">
+                <a class="uk-navbar-item uk-logo" href="index.php">Re-Event</a>
+            </div>
+            <div class="uk-navbar-right">
+                <a class="uk-navbar-item" href="pages/connexion/connexion.html">
+                <span class="uk-icon uk-margin-small-right" uk-icon="icon: sign-in"></span>
+                Connexion</a>
+                <a class="uk-navbar-item" href="pages/inscription/inscription.html">
+                <span class="uk-icon uk-margin-small-right" uk-icon="icon: users"></span>
+                Inscription</a>
+            </div>
+        </nav>
+    </div>
+    
+    <div class="uk-cover-background">
+      <img src="assets/imgs/info.jpg">
+      <div class="uk-position-cover uk-flex uk-flex-center uk-flex-middle uk-text-center">
+        <div class="uk-overlay uk-position-top-center">
+          <h1>Re-Event </h1>
         </div>
-      </diV> 
+        <div class="uk-overlay uk-position-top-center">
+          <h2>Découvre, partage des évenements proche de toi!</h2>
+        </div>
+        <div class="uk-overlay uk-position-top-center">
+          <p>Re-Events organise tes sorties<br>
+            Sort librement avec Re-Events</p>
+        </div>
+        <div class="uk-overlay uk-position-top-center">
+          <button class="uk-button uk-button-default" uk-toggle="target: .presentation">Utilisateurs</button>
+        </div>   
+      </div>
+    </diV> 
           <!--<div class="presentation uk-invisible-toggle" >
               <h1>Presentation</h1>
           </div>-->

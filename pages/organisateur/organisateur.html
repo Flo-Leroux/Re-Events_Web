@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Re-Event</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Add UI Kit -->
+        <link rel="stylesheet" href="../../deploy/uiKit/uikit.min.css" />
+        <script src="../../deploy/uiKit/uikit.min.js"></script>
+        <script src="../../deploy/uiKit/uikit-icons.min.js"></script>
+
+        <!-- Add My Styles -->
+        <link rel="stylesheet" href="../../index.css" />
+        <link rel="stylesheet" href="../connexion/connexion.css"/>
+
+        <!-- Add Firebase -->
+        <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+        <!-- update the version number as needed 
+        <script defer src="/__/firebase/4.8.0/firebase-app.js"></script>-->
+        <!-- include only the Firebase features as you need 
+        <script defer src="/__/firebase/4.8.0/firebase-auth.js"></script>
+        <script defer src="/__/firebase/4.8.0/firebase-database.js"></script>
+        <script defer src="/__/firebase/4.8.0/firebase-messaging.js"></script>
+        <script defer src="/__/firebase/4.8.0/firebase-storage.js"></script>-->
+        <!-- initialize the SDK after all desired features are loaded 
+        <script defer src="/__/firebase/init.js"></script>-->
+        <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-messaging.js"></script>
+    </head>
+    <body>
+        <div data-uk-sticky>
+            <nav class="uk-navbar-container" uk-navbar>
+                <div class="uk-navbar-left">
+                    <a class="uk-navbar-item uk-logo" href="../../index.html">Re-Event</a>
+                    <a class="uk-navbar-item" href="#mesEvenement">Mes évenements</a>
+                    <a class="uk-navbar-item" href="#orgaEvenement">Organiser un évenement</a>
+                </div>
+                <div class="uk-navbar-right">
+                    <a class="uk-navbar-item" href="#">
+                        <span class="uk-icon uk-margin-small-right" uk-icon="icon: menu"></span>
+                    </a>
+                    <div uk-dropdown="mode: click">
+                        <ul class="uk-nav uk-dropdown-nav" style="text-align: center;">
+                            <li><a href="#profil"><span class="uk-icon uk-margin-small-right" uk-icon="icon: user"></span>Mon profil</a></li>
+                            <li><a href="../../index.html"><span class="uk-icon uk-margin-small-right" uk-icon="icon: close"></span>Déconnexion</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </body>
+</html>
