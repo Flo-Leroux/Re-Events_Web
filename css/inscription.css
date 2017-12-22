@@ -1,0 +1,11 @@
+.uk-position-cover{
+    margin-top:50px;
+}
+
+.uk-panel{
+    text-align: center;
+    background: black;
+    opacity: 0.8;
+    width: 400px;
+    height: 550px;
+}

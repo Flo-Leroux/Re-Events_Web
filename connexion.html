@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Re-Event</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/uikit.min.css" />
+        <link rel="stylesheet" href="css/index.css" />
+        <link rel="stylesheet" href="css/connexion.css"/>
+        <script src="js/uikit.min.js"></script>
+        <script src="js/uikit-icons.min.js"></script>
+        
+        <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+        <!-- update the version number as needed 
+        <script defer src="/__/firebase/4.8.0/firebase-app.js"></script>-->
+        <!-- include only the Firebase features as you need 
+        <script defer src="/__/firebase/4.8.0/firebase-auth.js"></script>
+        <script defer src="/__/firebase/4.8.0/firebase-database.js"></script>
+        <script defer src="/__/firebase/4.8.0/firebase-messaging.js"></script>
+        <script defer src="/__/firebase/4.8.0/firebase-storage.js"></script>-->
+        <!-- initialize the SDK after all desired features are loaded 
+        <script defer src="/__/firebase/init.js"></script>-->
+        <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-messaging.js"></script>
+    </head>
+    <body>
+    <div data-uk-sticky>
+        <nav class="uk-navbar-container" uk-navbar>
+            <div class="uk-navbar-left">
+                <a class="uk-navbar-item uk-logo" href="index.html">Re-Event</a>
+            </div>
+            <div class="uk-navbar-right">
+                <a class="uk-navbar-item" href="connexion.html">
+                <span class="uk-icon uk-margin-small-right" uk-icon="icon: sign-in"></span>
+                Connexion</a>
+                <a class="uk-navbar-item" href="inscription.php">
+                <span class="uk-icon uk-margin-small-right" uk-icon="icon: users"></span>
+                Inscription</a>
+            </div>
+        </nav>
+    </div>
+    
+        <div class="uk-cover-background">
+            <img src="img/banniere1.jpg">
+            <div class="uk-position-cover uk-flex uk-flex-center uk-flex-middle uk-text-center">
+                <form id="connexion" class="uk-panel uk-panel-box uk-form uk-animation-scale-up" method="post" style="display: block;">
+                    <h2 id="title" class="title">Connexion</h2>
+                    
+                    <div class="uk-form-row">
+                        <div class="errors uk-alert uk-alert-warning uk-hidden">
+                        </div>
+                    </div>
+                    <a href="inscription.html" id="inscription" class="link">Je n'ai pas de compte !</a>
+                    <div class="uk-form-row">
+                        <input id="email" class="uk-form-medium" type="text" name="email" placeholder="Email">
+                    </div>
+                    <div class="uk-form-row">
+                        <input id="password" class="uk-form-medium" type="password" name="password" placeholder="Mot de passe">
+                    </div>
+                    <a id="forgotPassword" class="link" href="reinitpassword.html">Mot de passe oublié..</a>
+                    <div class="uk-form-row">
+                        <button id="submit" class="uk-button" type="submit">Se Connecter</button>
+                    </div>
+                    <div class="uk-form-row">
+                        <a id="fbsubmit" class="uk-button uk-icon" uk-icon="icon: facebook">Se Connecter avec Facebook</a>
+                    </div>
+                    <script type="module" src="js/connexion.js"></script>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
+

@@ -1,0 +1,58 @@
+@font-face {
+    font-family: 'Jaimes_Blues';
+    src: url('font/Jaime_Blues.ttf');
+}
+
+.uk-navbar-container {
+    height: 60px;
+}
+
+.uk-navbar-left {
+    padding-left: 20px;
+}
+
+.uk-navbar-right {
+    padding-right: 20px;
+}
+
+
+/* banniere */
+img {
+    width: 100%;
+    height: 90vh;
+}
+
+.uk-overlay h1 {
+    margin-top: 40px;
+    font-family: 'Jaimes_Blues';
+    font-size: 180px;
+    color: white;
+    text-align: center;
+}
+
+.uk-overlay h2 {
+    margin-top: 240px;
+    font-family: 'Arial';
+    font-size: 35px;
+    color: white;
+    text-align: center;
+}
+
+.uk-overlay p {
+    margin-top: 320px;
+    font-family: 'Arial';
+    font-size: 25px;
+    color: white;
+    text-align:center;
+}
+
+.uk-button {
+    margin-top: 450px;
+    font-weight: bold;
+    background-image: linear-gradient(to right, #64083e,#DA8CDC);
+    border-radius: 10000px;
+    color: white;
+}
+
+
+/* presentation */
