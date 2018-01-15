@@ -51,10 +51,6 @@
                 <form id="connexion" class="uk-panel uk-panel-box uk-form uk-animation-scale-up" action="" method="post" style="display: block;">
                     <h2 id="title" class="title">Connexion</h2>
                     
-                    <div class="uk-form-row">
-                        <div class="errors uk-alert uk-alert-warning uk-hidden">
-                        </div>
-                    </div>
                     <a href="../inscription/inscription.html" id="inscription" class="link">Je n'ai pas de compte !</a>
                     <div class="uk-form-row">
                         <input id="email" class="js uk-form-medium" type="text" name="email" placeholder="Email">
@@ -64,10 +60,10 @@
                     </div>
                     <a id="forgotPassword" class="link" href="../reinitpassword/reinitpassword.html">Mot de passe oublié ?</a>
                     <div class="uk-form-row">
-                        <input id="submit" class="uk-button" onClick='login()' type='submit' value='Se Connecter'>
+                        <input id="submit" class="uk-button" onClick='login()' type='button' value='Se Connecter'>
                     </div>
                     <div class="uk-form-row">
-                        <a id="fbsubmit" class="uk-button uk-icon" uk-icon="icon: facebook">Se Connecter avec Facebook</a>
+                        <a id="submit" class="uk-button uk-icon" uk-icon="icon: facebook" onClick='fbLogin()' type='button'>Se Connecter avec Facebook</a>
                     </div>
                 </form>
             </div>

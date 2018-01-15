@@ -10,9 +10,14 @@
     <script src="../../deploy/uiKit/uikit.min.js"></script>
     <script src="../../deploy/uiKit/uikit-icons.min.js"></script>
 
+    <!-- Add My Scripts -->
+    <script src="../../engine/firebase.js"></script>
+    <script src="inscription.js"></script>
+
     <!-- Add My Style -->
-    <link rel="stylesheet" href="inscription.css"/>
     <link rel="stylesheet" href="../connexion/connexion.css"/>
+    <link rel="stylesheet" href="inscription.css"/>
+    
 
     <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
     <!-- update the version number as needed 
@@ -215,7 +220,7 @@
                         <input id="passwordConfirm" class="uk-form-medium" type="password" name="password" placeholder="Confirmez votre mot de passe">
                     </div>
                     <div class="uk-form-row">
-                        <span id="submit" class="uk-button" type="submit">S'inscrire'</span>
+                        <input id="submit" class="uk-button" type="button" onClick='verifMail()' value="S'inscrire">
                     </div>
                 </form>
             </div>

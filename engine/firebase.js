@@ -11,6 +11,8 @@ const config = {
 
 firebase.initializeApp(config);
 
+
+
 /* Interface avec Firebase */
 function emailLogin(email, password) {
   return new Promise((resolve, reject) => {
@@ -24,4 +26,19 @@ function emailLogin(email, password) {
         reject(err);
     });
   });
+}
+
+var provider = new firebase.auth.FacebookAuthProvider();
+function facebookLogin() {
+  firebase.auth().signInWithPopup(provider)
+  .then(result => {
+    var token = result.credential.accessToken;
+    var user = result.user;
+    console.log(token);
+    console.log(user);
+  }).catch(error => {
+    console.log(error.code);
+    console.log(error.message);
+  })
+  window.location = "../organisateur/organisateur.html";
 }
