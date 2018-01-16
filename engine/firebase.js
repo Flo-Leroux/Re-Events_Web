@@ -42,3 +42,18 @@ function facebookLogin() {
   })
   window.location = "../organisateur/organisateur.html";
 }
+
+function inscription(email, password){
+  firebase.auth().createUserWithEmailAndPassword(email,password)
+  .catch(err => {
+    var errorCode = err.code;
+    var errorMessage = err.message;
+    if(errorCode == 'auth/weak-password') {
+      alert('Le mot de passe est trop faible');
+    }
+    else {
+      alert(errorMessage);
+    }
+    console.log(err);
+  })
+}
