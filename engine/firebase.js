@@ -11,7 +11,7 @@ const config = {
 
 firebase.initializeApp(config);
 
-
+let provider = new firebase.auth.FacebookAuthProvider();
 
 /* Interface avec Firebase */
 function emailLogin(email, password) {
@@ -28,7 +28,6 @@ function emailLogin(email, password) {
   });
 }
 
-var provider = new firebase.auth.FacebookAuthProvider();
 function facebookLogin() {
   firebase.auth().signInWithPopup(provider)
   .then(result => {
@@ -43,8 +42,11 @@ function facebookLogin() {
   window.location = "../organisateur/organisateur.html";
 }
 
-function inscription(email, password, passConf){
+function inscription(prenom, nom, birthday, email, password, passConf){
   firebase.auth().createUserWithEmailAndPassword(email,password)
+  .then(res => {
+    insertUser(prenom, nom, birthday);
+  })
   .catch(err => {
     var errorCode = err.code;
     var errorMessage = err.message;
@@ -67,6 +69,37 @@ function inscription(email, password, passConf){
         status:'warning'
       });
     }
+    console.log(err);
+  })
+}
+
+function getUID() {
+  return new Promise((resolve, reject) => {
+    firebase.auth().onAuthStateChanged(function(user) {
+      if(user != null) {
+        resolve(user.uid);
+      }
+      else {
+        window.location = '../../index.html';
+        reject();
+      }
+    });
+  });
+}
+
+function insertUser(prenom, nom, birthday) {
+  getUID()
+  .then(uid => {
+    var database = firebase.database().ref(`users/${uid}/`);
+    database.set({
+      firstname : prenom,
+      lastname  : nom,
+      birthday  : birthday
+    });
+    console.log("Insert Success");
+    console.log(uid);
+  })
+  .catch(err => {
     console.log(err);
   })
 }
