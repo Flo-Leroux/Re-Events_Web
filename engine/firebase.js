@@ -11,7 +11,7 @@ const config = {
 
 firebase.initializeApp(config);
 
-let provider = new firebase.auth.FacebookAuthProvider();
+
 
 /* Interface avec Firebase */
 function emailLogin(email, password) {
@@ -22,24 +22,52 @@ function emailLogin(email, password) {
         resolve(res);
     })
     .catch(err => {
+      var errorCode = err.code;
+      var errorMess = err.message;
+      if(errorCode == "auth/invalid-email"){
+        UIkit.notification('<span uk-icon="icon: ban"></span> L\' adresse email est incorrecte', {
+          status:'warning'
+        });
+      }else if(errorCode == 'auth/user-disabled') {
+        UIkit.notification('<span uk-icon="icon: ban"></span> L\' adresse email est désactivé', {
+          status:'warning'
+        });
+      }
+      else if(errorCode == "auth/user-not-found"){
+        UIkit.notification('<span uk-icon="icon: ban"></span> Aucun utilisateur correspond a cette adresse mail.', {
+          status:'warning'
+        });
+      } else if(errorCode == "auth/wrong-password"){
+        UIkit.notification('<span uk-icon="icon: ban"></span> Le mot de passe est incorrecte', {
+          status:'warning'
+        });
+      }  
         console.log('Not Logged');
+        
         reject(err);
     });
   });
 }
 
 function facebookLogin() {
+  var provider = new firebase.auth.FacebookAuthProvider();
+  provider.addScope('email');
   firebase.auth().signInWithPopup(provider)
   .then(result => {
     var token = result.credential.accessToken;
-    var user = result.user;
+    var user = firebase.auth().currentUser;
+
+    if(user !=null){
+      user.updateEmail(user.providerData[0].email);
+    }
     console.log(token);
     console.log(user);
+    window.location = "../organisateur/organisateur.html";
   }).catch(error => {
     console.log(error.code);
     console.log(error.message);
   })
-  window.location = "../organisateur/organisateur.html";
+  
 }
 
 function inscription(prenom, nom, birthday, email, password, passConf){
