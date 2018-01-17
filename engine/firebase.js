@@ -43,16 +43,29 @@ function facebookLogin() {
   window.location = "../organisateur/organisateur.html";
 }
 
-function inscription(email, password){
+function inscription(email, password, passConf){
   firebase.auth().createUserWithEmailAndPassword(email,password)
   .catch(err => {
     var errorCode = err.code;
     var errorMessage = err.message;
-    if(errorCode == 'auth/weak-password') {
-      alert('Le mot de passe est trop faible');
+    if(errorCode == "auth/email-already-in-use"){
+      console.log(UIkit);
+      UIkit.notification('<span uk-icon="icon: ban"></span> L\' adresse email est déjà utiliser', {
+        status:'warning'
+      });
+    }else if(errorCode == 'auth/invalid-email') {
+      UIkit.notification('<span uk-icon="icon: ban"></span> L\' adresse email n\'est pas valide', {
+        status:'warning'
+      });
     }
-    else {
-      alert(errorMessage);
+    else if(errorCode == "auth/weak-password"){
+      UIkit.notification('<span uk-icon="icon: ban"></span> Le mot de passe doit contenir au minimum 6 caractères.', {
+        status:'warning'
+      });
+    } else if(password != passconf){
+      UIkit.notification('<span uk-icon="icon: ban"></span> Le mot de passe de confirmation n\'est pas le même que le mot de passe', {
+        status:'warning'
+      });
     }
     console.log(err);
   })
