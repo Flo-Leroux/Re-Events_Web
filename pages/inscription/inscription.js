@@ -24,34 +24,20 @@ function register(){
     var day = document.getElementById('birth-day').value;
     var month = document.getElementById('birth-month').value;
     var year = document.getElementById('birth-year').value;
-    var birthday = day+"-"+month+"-"+year;
+    var birthday = day+"/"+month+"/"+year;
     console.log(birthday);
 
     if(prenom == '' || nom == ''){
-        console.log(UIkit);
         UIkit.notification('<span uk-icon="icon: ban"></span> Le champ du Prénom ou du Nom n\est pas complété', {
             status:'warning'
         });
     } else {
-        insertUser(prenom, nom, birthday);
+        //insertUser(prenom, nom, birthday);
+        inscription(prenom, nom, birthday, email, password, confirmPass);
     }
     
-    inscription(email,password, confirmPass);
     /*console.log(UIkit);
     UIkit.notification('<span uk-icon="icon: ban"></span> L\' inscription n\'est pas valide', {
                                         status:'warning'
                                     });*/
-}
-
-function insertUser(prenom, nom, birthday) {
-
-    var database = firebase.database().ref("users");
-    database.push({
-        firstname:prenom,
-        lastname:nom,
-        birthday:birthday
-    });
-    
-    console.log("Insert Success");
-
 }
