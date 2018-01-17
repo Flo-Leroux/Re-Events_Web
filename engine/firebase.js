@@ -44,7 +44,28 @@ function emailLogin(email, password) {
         resolve(res);
     })
     .catch(err => {
+      var errorCode = err.code;
+      var errorMess = err.message;
+      if(errorCode == "auth/invalid-email"){
+        UIkit.notification('<span uk-icon="icon: ban"></span> L\' adresse email est incorrecte', {
+          status:'warning'
+        });
+      }else if(errorCode == 'auth/user-disabled') {
+        UIkit.notification('<span uk-icon="icon: ban"></span> L\' adresse email est désactivé', {
+          status:'warning'
+        });
+      }
+      else if(errorCode == "auth/user-not-found"){
+        UIkit.notification('<span uk-icon="icon: ban"></span> Aucun utilisateur correspond a cette adresse mail.', {
+          status:'warning'
+        });
+      } else if(errorCode == "auth/wrong-password"){
+        UIkit.notification('<span uk-icon="icon: ban"></span> Le mot de passe est incorrecte', {
+          status:'warning'
+        });
+      }  
         console.log('Not Logged');
+        
         reject(err);
     });
   });

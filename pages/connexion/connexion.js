@@ -16,13 +16,11 @@ function login() {
             window.location = "../organisateur/organisateur.html";
         })
         .catch(err => {
-            UIkit.notification('<span uk-icon="icon: ban"></span> L\' email ou le mot de passe sont incorrectes', {
-                status:'warning'
-            });
+
         })
     }
 }
 
 function fbLogin(){
-    facebookLogin()
+    facebookLogin();
 }
