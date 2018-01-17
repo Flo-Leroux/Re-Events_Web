@@ -11,6 +11,28 @@ const config = {
 
 firebase.initializeApp(config);
 
+/* Initialisation de Facebook */
+window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '1306889219440575',
+    cookie     : true,
+    xfbml      : true,
+    version    : 'v2.10'
+  });
+    
+  FB.AppEvents.logPageView();   
+    
+};
+
+(function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+/* Global Variables */
 let provider = new firebase.auth.FacebookAuthProvider();
 
 /* Interface avec Firebase */
@@ -29,23 +51,41 @@ function emailLogin(email, password) {
 }
 
 function facebookLogin() {
+  provider.addScope('email');
+  provider.addScope('user_birthday');
   firebase.auth().signInWithPopup(provider)
   .then(result => {
     var token = result.credential.accessToken;
-    var user = result.user;
-    console.log(token);
-    console.log(user);
+    console.log(result.user);
+    var user = firebase.auth().currentUser;
+
+    if (user != null) {
+      user.updateEmail(user.providerData[0].email);
+    }
+
+    getUID()
+    .then(uid => {
+      return insertUser(uid, 'Flo', 'Leroux', '19/05/1996');
+    })
+    .then(() => {
+      window.location = "../organisateur/organisateur.html";
+    })
   }).catch(error => {
     console.log(error.code);
     console.log(error.message);
   })
-  window.location = "../organisateur/organisateur.html";
 }
 
 function inscription(prenom, nom, birthday, email, password, passConf){
   firebase.auth().createUserWithEmailAndPassword(email,password)
   .then(res => {
-    insertUser(prenom, nom, birthday);
+    getUID()
+    .then(uid => {
+      return insertUser(uid, prenom, nom, birthday);
+    })
+    .then(() => {
+      window.location = '../organisateur/organisateur.html';
+    })
   })
   .catch(err => {
     var errorCode = err.code;
@@ -87,19 +127,19 @@ function getUID() {
   });
 }
 
-function insertUser(prenom, nom, birthday) {
-  getUID()
-  .then(uid => {
-    var database = firebase.database().ref(`users/${uid}/`);
+function insertUser(uid, prenom, nom, birthday) {
+  return new Promise((resolve, reject) => {
+    let database = firebase.database().ref(`users/${uid}/`);
     database.set({
       firstname : prenom,
       lastname  : nom,
       birthday  : birthday
-    });
-    console.log("Insert Success");
-    console.log(uid);
-  })
-  .catch(err => {
-    console.log(err);
-  })
+    })
+    .then(() => {
+      resolve();
+    })
+    .catch(() => {
+      reject();
+    })
+  });
 }

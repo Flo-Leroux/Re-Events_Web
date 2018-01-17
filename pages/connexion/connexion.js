@@ -25,15 +25,4 @@ function login() {
 
 function fbLogin(){
     facebookLogin()
-    .then(result => {
-        console.log(UIkit);
-        UIkit.notification('<span uk-icon="icon: check"></span> Logged', {
-                                        status:'success'
-                                    });
-    })
-    .catch(error => {
-        UIkit.notification('<span uk-icon="icon: ban"></span> Not Logged', {
-            status:'warning'
-        });
-    })
 }
