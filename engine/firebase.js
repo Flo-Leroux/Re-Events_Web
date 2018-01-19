@@ -88,9 +88,9 @@ function facebookLogin() {
       user.updateEmail(user.providerData[0].email);
     }
 
-    getUID()
-    .then((uid) => {
-      return Promise.all([getFacebookUserInfo(),uid]);
+    userStateFirebase()
+    .then((user) => {
+      return Promise.all([getFacebookUserInfo(),user.uid]);
     })
     .then(([fbDatas, uid]) => {
       //console.log('INFO');
@@ -110,9 +110,9 @@ function facebookLogin() {
 function inscription(prenom, nom, birthday, email, password, passConf){
   firebase.auth().createUserWithEmailAndPassword(email,password)
   .then(res => {
-    getUID()
-    .then(uid => {
-      return insertUser(uid, prenom, nom, birthday);
+    userStateFirebase()
+    .then(user => {
+      return insertUser(user.uid, prenom, nom, birthday);
     })
     .then(() => {
       window.location = '../organisateur/organisateur.html';
@@ -143,11 +143,11 @@ function inscription(prenom, nom, birthday, email, password, passConf){
   })
 }
 
-function getUID() {
+function userStateFirebase() {
   return new Promise((resolve, reject) => {
     firebase.auth().onAuthStateChanged(function(user) {
       if(user != null) {
-        resolve(user.uid);
+        resolve(user);
       }
       else {
         window.location = '../../index.html';
@@ -195,11 +195,5 @@ function getFacebookUserInfo(){
 function deconnection(){
   return new Promise((resolve, reject) => {
 
-  })
-}
-
-function userStatus(){
-  return new Promise((resolve, reject) => {
-    
   })
 }
