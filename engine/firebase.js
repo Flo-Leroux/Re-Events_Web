@@ -17,6 +17,7 @@ window.fbAsyncInit = function() {
     appId      : '1306889219440575',
     cookie     : true,
     xfbml      : true,
+    status     : true,
     version    : 'v2.10'
   });
     
@@ -76,9 +77,12 @@ function facebookLogin() {
   provider.addScope('user_birthday');
   firebase.auth().signInWithPopup(provider)
   .then(result => {
+
     var token = result.credential.accessToken;
+    getFacebookId();
     console.log(result.user);
     var user = firebase.auth().currentUser;
+    var prenom = user.providerData[0].displayName;
 
     if (user != null) {
       user.updateEmail(user.providerData[0].email);
@@ -86,10 +90,10 @@ function facebookLogin() {
 
     getUID()
     .then(uid => {
-      return insertUser(uid, 'Flo', 'Leroux', '19/05/1996');
+      return insertUser(uid, prenom, 'Leroux', '19/05/1996');
     })
     .then(() => {
-      window.location = "../organisateur/organisateur.html";
+      //window.location = "../organisateur/organisateur.html";
     })
   }).catch(error => {
     console.log(error.code);
@@ -163,4 +167,15 @@ function insertUser(uid, prenom, nom, birthday) {
       reject();
     })
   });
+}
+
+function getFacebookId(){
+  FB.getLoginStatus(function(response) {
+    if(response.status === 'connected'){
+      console.log(response);
+    }
+  });
+  FB.api('/1967599456613807', {fields: 'last_name, first_name, birthday'} , function(response){
+    console.log(response);
+  })
 }
