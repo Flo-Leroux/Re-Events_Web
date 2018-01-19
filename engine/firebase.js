@@ -36,12 +36,13 @@ window.fbAsyncInit = function() {
 /* Global Variables */
 let provider = new firebase.auth.FacebookAuthProvider();
 
+
 /* Interface avec Firebase */
 function emailLogin(email, password) {
   return new Promise((resolve, reject) => {
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(res => {
-        console.log('Logged');
+        //console.log('Logged');
         resolve(res);
     })
     .catch(err => {
@@ -65,7 +66,7 @@ function emailLogin(email, password) {
           status:'warning'
         });
       }  
-        console.log('Not Logged');
+        //console.log('Not Logged');
         
         reject(err);
     });
@@ -79,8 +80,7 @@ function facebookLogin() {
   .then(result => {
 
     var token = result.credential.accessToken;
-    getFacebookId();
-    console.log(result.user);
+    //console.log(result.user);
     var user = firebase.auth().currentUser;
     var prenom = user.providerData[0].displayName;
 
@@ -89,11 +89,17 @@ function facebookLogin() {
     }
 
     getUID()
-    .then(uid => {
-      return insertUser(uid, prenom, 'Leroux', '19/05/1996');
+    .then((uid) => {
+      return Promise.all([getFacebookUserInfo(),uid]);
+    })
+    .then(([fbDatas, uid]) => {
+      //console.log('INFO');
+      //console.log(uid);
+      //console.log(fbDatas);
+      return insertUser(uid, fbDatas.first_name, fbDatas.last_name, fbDatas.birthday);
     })
     .then(() => {
-      //window.location = "../organisateur/organisateur.html";
+      window.location = "../organisateur/organisateur.html";
     })
   }).catch(error => {
     console.log(error.code);
@@ -116,7 +122,6 @@ function inscription(prenom, nom, birthday, email, password, passConf){
     var errorCode = err.code;
     var errorMessage = err.message;
     if(errorCode == "auth/email-already-in-use"){
-      console.log(UIkit);
       UIkit.notification('<span uk-icon="icon: ban"></span> L\' adresse email est déjà utiliser', {
         status:'warning'
       });
@@ -169,13 +174,32 @@ function insertUser(uid, prenom, nom, birthday) {
   });
 }
 
-function getFacebookId(){
-  FB.getLoginStatus(function(response) {
-    if(response.status === 'connected'){
-      console.log(response);
-    }
+function getFacebookUserInfo(){
+  return new Promise((resolve, reject) => {
+    FB.getLoginStatus(function(response) {
+      if(response.status === 'connected'){
+        var IdFB = response.authResponse.userID;
+        //console.log(IdFB);
+
+        FB.api('/'+IdFB, {fields: 'last_name, first_name, birthday'} , function(response){
+          resolve(response);
+        });
+      }
+      else {
+        reject();
+      }
+    })
   });
-  FB.api('/1967599456613807', {fields: 'last_name, first_name, birthday'} , function(response){
-    console.log(response);
+}
+
+function deconnection(){
+  return new Promise((resolve, reject) => {
+
+  })
+}
+
+function userStatus(){
+  return new Promise((resolve, reject) => {
+    
   })
 }
