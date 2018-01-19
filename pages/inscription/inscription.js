@@ -31,13 +31,12 @@ function register(){
         UIkit.notification('<span uk-icon="icon: ban"></span> Le champ du Prénom ou du Nom n\est pas complété', {
             status:'warning'
         });
+    } else if(password != confirmPass) {
+        UIkit.notification('<span uk-icon="icon: ban"></span> Le mot de passe de confirmation ne correspond pas au mot de passe ci-dessus', {
+            status:'warning'
+        });
     } else {
         //insertUser(prenom, nom, birthday);
-        inscription(prenom, nom, birthday, email, password, confirmPass);
+        inscription(prenom, nom, birthday, email, password);
     }
-    
-    /*console.log(UIkit);
-    UIkit.notification('<span uk-icon="icon: ban"></span> L\' inscription n\'est pas valide', {
-                                        status:'warning'
-                                    });*/
 }

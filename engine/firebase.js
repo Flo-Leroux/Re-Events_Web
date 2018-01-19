@@ -107,7 +107,7 @@ function facebookLogin() {
   })
 }
 
-function inscription(prenom, nom, birthday, email, password, passConf){
+function inscription(prenom, nom, birthday, email, password){
   firebase.auth().createUserWithEmailAndPassword(email,password)
   .then(res => {
     userStateFirebase()
@@ -132,10 +132,6 @@ function inscription(prenom, nom, birthday, email, password, passConf){
     }
     else if(errorCode == "auth/weak-password"){
       UIkit.notification('<span uk-icon="icon: ban"></span> Le mot de passe doit contenir au minimum 6 caractères.', {
-        status:'warning'
-      });
-    } else if(password != passconf){
-      UIkit.notification('<span uk-icon="icon: ban"></span> Le mot de passe de confirmation n\'est pas le même que le mot de passe', {
         status:'warning'
       });
     }
@@ -198,5 +194,19 @@ function deconnexion(){
    .then(() => {
      userStateFirebase();
    })
+  });
+}
+
+function reinitPass(email){
+  return new Promise((resolve, reject) => {
+    firebase.auth().sendPasswordResetEmail(email)
+    .then(res => {
+      console.log("sent email");
+      resolve(res);
+    })
+    .catch(err => {
+      console.log("email non envoyer");
+      reject(err)
+    })
   });
 }

@@ -9,8 +9,8 @@ function login() {
     if(email!='' && password!='') {
         emailLogin(email, password)
         .then(res => {
-            console.log(UIkit);
-            UIkit.notification('<span uk-icon="icon: check"></span> LLogged', {
+            //console.log(UIkit);
+            UIkit.notification('<span uk-icon="icon: check"></span> Logged', {
                                             status:'success'
                                         });
             window.location = "../organisateur/organisateur.html";
