@@ -192,8 +192,11 @@ function getFacebookUserInfo(){
   });
 }
 
-function deconnection(){
+function deconnexion(){
   return new Promise((resolve, reject) => {
-
-  })
+   firebase.auth().signOut()
+   .then(() => {
+     userStateFirebase();
+   })
+  });
 }
