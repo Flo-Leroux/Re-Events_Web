@@ -65,15 +65,26 @@
             </nav>
         </div>
         <div class="uk-overlay">
-            <div class="uk-overlay-panel uk-flex uk-flex-center ">
+            <div class="uk-overlay-panel uk-flex uk-flex-center uk-flex-middle ">
                 <div class="grid">
-                    <div id="title" class="box"></div>
-                    <div id="photo" class="box"></div>
+                    <div id="title" class="box">Mon Profil</div>
+                    <div id="photo" class="box">
+                        <img src="../../assets/imgs/banniere1.jpg">
+                    </div>
                     <div id="nom" class="box"></div>
                     <div id="prenom" class="box"></div>
                     <div id="birthday" class="box"></div>
-                    <div id="status" class="box"></div>
-                    <div id="description" class="box"></div>
+                    <div class="box">
+                        <label>Status:</label>
+                        <input id="status" type="text" name="status">
+                    </div>
+                    <div class="box">
+                        <label>Ma petite bio':</label>
+                        <textarea id="bio" type="text" style="width: 100%; height:60px;" ></textarea>
+                    </div>
+                    <div id="update" class="box">
+                        <input id="submit" class="uk-button" type="button" value="Mettre à jour">
+                    </div>
                 </div>
             </div>
         </div>

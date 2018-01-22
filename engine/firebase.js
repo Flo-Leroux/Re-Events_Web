@@ -210,3 +210,7 @@ function reinitPass(email){
     })
   });
 }
+
+function recupérerInfo(){
+  
+}

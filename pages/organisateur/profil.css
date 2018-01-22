@@ -1,3 +1,5 @@
+
+
 .uk-overlay{
     background-image: url("../../assets/imgs/banniere1.jpg");
     width: auto;
@@ -17,20 +19,22 @@
 }
 
 .box{
+    font-size: 1.2em;
     color: white;
-    font-size:4vw;
+    background-color: gold;
     padding:10px;
-    background: gold;
     text-align: center;
 }
 
 .box:nth-child(1){
     grid-column: span 4;
+    font-size: 40px;
 }
 
 .box:nth-child(2){
     grid-column: span 2;
     grid-row: span 4;
+
 }
 
 .box:nth-child(3),
@@ -43,6 +47,34 @@
 .box:nth-child(7){
     grid-column: span 4;
     grid-row: span 2;
+    text-align: left;
 }
 
+.box:nth-child(8){
+    grid-column: span 4;
+}
+
+.uk-button{
+    margin-top: 0;
+}
+
+img{
+    border-radius: 50%;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+}
+
+input{
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+textarea{
+    background-color: transparent;
+    color:white;
+    border: none;
+
+}
 
