@@ -9,19 +9,18 @@
     display: grid;
     text-align: center;
     background-color: black;
-    width:80%;
+    width:60%;
     height: 80vh;
     opacity: 0.8;
     border-radius: 50px;
     grid-template-rows: repeat(8,1fr);
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;       
+    grid-gap: 5px;       
 }
 
 .box{
     font-size: 1.2em;
     color: white;
-    background-color: gold;
     padding:10px;
     text-align: center;
 }
@@ -42,6 +41,7 @@
 .box:nth-child(5),
 .box:nth-child(6){
     grid-column: span 2;
+    text-align: left;
 }
 
 .box:nth-child(7){
