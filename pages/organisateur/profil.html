@@ -36,7 +36,9 @@
         <script>
         
         userStateFirebase();
+        userConnect();
         userInfo();
+
         </script>       
         
         <!-- Add My Styles -->
@@ -56,6 +58,7 @@
                 <div class="uk-navbar-right">
                     <a class="uk-navbar-item" href="#">
                         <span class="uk-icon uk-margin-small-right" uk-icon="icon: menu"></span>
+                        <span id="user" style="color:black"></span>
                     </a>
                     <div uk-dropdown="mode: click">
                         <ul class="uk-nav uk-dropdown-nav" style="text-align: center;">
@@ -81,14 +84,14 @@
                     </div>
                     <div class="box">
                         <label>Statut:</label>
-                        <input name="statut" type="text">
+                        <input id="statut" type="text">
                     </div>
                     <div class="box">
                         <label>Ma petite bio':</label>
                         <textarea id="bio" type="text" style="width: 100%; height:60px;" ></textarea>
                     </div>
                     <div id="update" class="box">
-                        <input id="submit" class="uk-button" type="button" value="Mettre à jour">
+                        <input id="submit" class="uk-button" type="button" value="Mettre à jour" onClick="javascript:update()">
                     </div>
                 </div>
             </div>

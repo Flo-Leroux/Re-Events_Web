@@ -31,7 +31,7 @@ img {
 }
 
 .uk-overlay h2 {
-    margin-top: 240px;
+    margin-top: 280px;
     font-family: 'Arial';
     font-size: 35px;
     color: white;
@@ -39,7 +39,7 @@ img {
 }
 
 .uk-overlay p {
-    margin-top: 320px;
+    margin-top: 400px;
     font-family: 'Arial';
     font-size: 25px;
     color: white;
@@ -56,3 +56,31 @@ img {
 
 
 /* presentation */
+
+.uk-grid{
+    width: 100%;
+    height: 600px;
+}
+
+.phone{
+    align-self: center;
+    text-align: center;
+}
+
+#phone{
+    width: 50%;
+    height: 80vh;
+}
+
+.information{
+    margin-top: 40px;
+    text-align: center;
+}
+
+.secondSlide{
+    background-image: url("assets/imgs/live-concert.jpg");
+}
+
+.info{
+    color: white;
+}

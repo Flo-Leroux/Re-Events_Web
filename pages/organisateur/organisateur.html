@@ -31,9 +31,11 @@
 
         <!-- Add Script -->
         <script src='../../engine/firebase.js'></script>
+        <!--<script src='organisateur.js'></script>-->
         <script>
         
         userStateFirebase();
+        userConnect();
         
         </script>       
         
@@ -54,6 +56,7 @@
                 <div class="uk-navbar-right">
                     <a class="uk-navbar-item" href="#">
                         <span class="uk-icon uk-margin-small-right" uk-icon="icon: menu"></span>
+                        <span id="user" class="uk-margin-small-right" style="color:black"></span>
                     </a>
                     <div uk-dropdown="mode: click">
                         <ul class="uk-nav uk-dropdown-nav" style="text-align: center;">

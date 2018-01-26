@@ -1,0 +1,56 @@
+
+
+.uk-panel{
+    text-align: center;
+    background: black;
+    opacity: 0.8;
+    width: 900px;
+    height: 550px;
+}
+
+.title{
+    margin-top:5px;
+    font-size:2em;
+}
+
+.uk-width-1-2{
+    margin-top:10px;
+}
+
+.uk-height-small{
+    text-align: center;
+    padding-left: 10px;
+    width: 80%;
+    height: 150px;
+    background-color:transparent;
+    border-radius: 20px;
+    border:1px solid white;
+    color:white;
+    outline: none;
+}
+
+textarea{
+    padding-left: 10px;
+    border-radius: 20px;
+    border:1px solid white;
+    color:white;
+    outline: none;
+    background-color:transparent;
+}
+
+.uk-height-large{
+    padding-left: 15px;
+    width: 90%;
+    height: 415px;
+}
+
+.uk-button{
+    margin-top: 5px;
+}
+
+.uk-form-medium{
+    width: 80%;
+}
+
+
+

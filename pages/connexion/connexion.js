@@ -10,9 +10,10 @@ function login() {
         emailLogin(email, password)
         .then(res => {
             //console.log(UIkit);
-            UIkit.notification('<span uk-icon="icon: check"></span> Logged', {
-                                            status:'success'
-                                        });
+            //UIkit.notification('<span uk-icon="icon: check"></span> Logged', {
+                                            //status:'success'
+                                        //});
+            
             window.location = "../organisateur/organisateur.html";
         })
         .catch(err => {

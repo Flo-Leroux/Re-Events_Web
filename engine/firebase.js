@@ -159,7 +159,7 @@ function insertUser(uid, prenom, nom, birthday) {
     database.set({
       firstname : prenom,
       lastname  : nom,
-      birthday  : birthday
+      birthday  : birthday,
     })
     .then(() => {
       resolve();
@@ -177,7 +177,7 @@ function getFacebookUserInfo(){
         var IdFB = response.authResponse.userID;
         //console.log(IdFB);
 
-        FB.api('/'+IdFB, {fields: 'last_name, first_name, birthday'} , function(response){
+        FB.api('/'+IdFB, {fields: 'last_name, first_name, birthday, picture.width(200).height(200)'} , function(response){
           resolve(response);
         });
       }
@@ -211,3 +211,33 @@ function reinitPass(email){
   });
 }
 
+function userConnect(){
+  userStateFirebase()
+  .then(user => {
+    return firebase.database().ref('/users/' +user.uid).once('value')
+    .then(snapshot => {
+        var lastname = snapshot.val().lastname;
+        var firstname = snapshot.val().firstname;
+
+        document.getElementById("user").innerHTML = lastname+" "+firstname;
+    })
+  })
+}
+
+function updateUser(statut, bio){
+  return new Promise((resolve, reject) => {
+    userStateFirebase()
+    .then(user =>{
+      firebase.database().ref('users/' + user.uid).update({
+        statut: statut,
+        biography: bio
+      });
+      //console.log("Success");
+      resolve(user);
+    })
+    .catch(err => {
+      reject(err);
+    })
+    
+  });
+}

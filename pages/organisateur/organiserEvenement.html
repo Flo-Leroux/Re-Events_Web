@@ -31,16 +31,18 @@
 
         <!-- Add Script -->
         <script src='../../engine/firebase.js'></script>
+
         <script>
         
         userStateFirebase();
+        userConnect();
         
         </script>       
         
         <!-- Add My Styles -->
         <link rel="stylesheet" href="../../index.css" />
         <link rel="stylesheet" href="../connexion/connexion.css"/>
-
+        <link rel="stylesheet" href="organiserEvenement.css"/>
 
     </head>
     <body>
@@ -54,6 +56,7 @@
                 <div class="uk-navbar-right">
                     <a class="uk-navbar-item" href="#">
                         <span class="uk-icon uk-margin-small-right" uk-icon="icon: menu"></span>
+                        <span id="user" style="color:black"></span>
                     </a>
                     <div uk-dropdown="mode: click">
                         <ul class="uk-nav uk-dropdown-nav" style="text-align: center;">
@@ -68,22 +71,38 @@
                 <img src="../../assets/imgs/banniere1.jpg">
                 <div class="uk-position-cover uk-flex uk-flex-center uk-flex-middle uk-text-center">
                     <form id="orgaEvenement" class="uk-panel uk-panel-box uk-form uk-animation-scale-up" action="" method="post" style="display: block;">
-                        <h2 id="title" class="title">Organiser un Evenement</h2>
-                        
-                        <div class="uk-form-row">
-                            <input id="nomEvenement" class="js uk-form-medium" type="text" name="nomEvenement" placeholder="Nom de l'evenement">
-                        </div>
-                        <div class="uk-form-row">
-                            <input id="heureDate" class="js uk-form-medium" type="datetime-local" name="heureDate" placeholder="Heure et date de l'evenement">
-                        </div>
-                        <div class="uk-form-row">
-                            <input id="lieu" class="js uk-form-medium" type="text" name="lieu" placeholder="Lieu de l'evenement">
-                        </div>
-                        <div class="uk-form-row">
-                            <textarea id="description" class="js uk-form-medium" type="text" name="description" placeholder="Description de l'evenement"></textarea>
-                        </div>   
-                        <div class="uk-form-row">
-                            <input id="submit" class="uk-button" type='button' value="Crée l'evenement">
+                        <div class="uk-grid">
+                            <div class="uk-width-1-1">
+                                <h2 class="uk-width-1-1 title">Organiser un Evenement</h2>
+                            </div>
+                            <div class="uk-width-1-2">
+                                <div class="uk-form-row">
+                                    <input id="titreEvenement" class="uk-form-medium" type="text" placeholder="Titre de l'événement">
+                                </div>
+                                <div class="uk-form-row">
+                                    <input id="date" class="uk-form-medium" type="date">
+                                </div>
+                                <div class="uk-form-row">
+                                    <input id="time" class="uk-form-medium" type="time">
+                                </div>
+                                <div class="uk-form-row">
+                                    <input id="lieu" class="uk-form-medium" type="text" placeholder="Lieu">
+                                </div>
+                                <div class="uk-form-row">
+                                    <input id="adresse" class="uk-form-medium" type="text" placeholder="Adresse de l'événement">
+                                </div>
+                                <div class="uk-form-row">
+                                    <input id="image" class="uk-form-medium uk-height-small" type="text" placeholder="Affiche de l'évenement">
+                                </div>   
+                            </div>
+                            <div class="uk-width-1-2">
+                                <div class="uk-form-row">
+                                    <textarea id="desc" class="uk-form-width-large uk-height-large" type="text" placeholder="Description de l'événement"></textarea>
+                                </div>                              
+                            </div>
+                            <div class="uk-width-1-1">
+                                <input id="submit" class="uk-button" type="button" value="Crée l'évenement">
+                            </div>
                         </div>
                     </form>
                 </div>
