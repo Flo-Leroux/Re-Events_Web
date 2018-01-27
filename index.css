@@ -59,7 +59,7 @@ img {
 
 .uk-grid{
     width: 100%;
-    height: 600px;
+    height: 80vh;
 }
 
 .phone{
@@ -68,8 +68,8 @@ img {
 }
 
 #phone{
-    width: 50%;
-    height: 80vh;
+    width: auto;
+    height: 60vh;
 }
 
 .information{
