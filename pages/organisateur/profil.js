@@ -8,11 +8,14 @@ function userInfo(){
             var birthday = snapshot.val().birthday;
             var statut = snapshot.val().statut;
             var bio = snapshot.val().biography;
+            var picture = snapshot.val().pictureURL;
             document.getElementById("nom").innerHTML = lastname;
             document.getElementById("prenom").innerHTML = firstname;
             document.getElementById("birthday").innerHTML = birthday;
             document.getElementsByName("statut").innerHTML = statut;
             document.getElementById("bio").innerHTML = bio;
+            document.getElementById("photo").innerHTML = "<img src='" + picture + "'>";
+
         })
     })
 }

@@ -96,7 +96,7 @@ function facebookLogin() {
       //console.log('INFO');
       //console.log(uid);
       //console.log(fbDatas);
-      return insertUser(uid, fbDatas.first_name, fbDatas.last_name, fbDatas.birthday);
+      return insertUser(uid, fbDatas.first_name, fbDatas.last_name, fbDatas.birthday, fbDatas.picture);
     })
     .then(() => {
       window.location = "../organisateur/organisateur.html";
@@ -112,7 +112,7 @@ function inscription(prenom, nom, birthday, email, password){
   .then(res => {
     userStateFirebase()
     .then(user => {
-      return insertUser(user.uid, prenom, nom, birthday);
+      return insertUser(user.uid, prenom, nom, birthday, picture);
     })
     .then(() => {
       window.location = '../organisateur/organisateur.html';
@@ -153,13 +153,14 @@ function userStateFirebase() {
   });
 }
 
-function insertUser(uid, prenom, nom, birthday) {
+function insertUser(uid, prenom, nom, birthday, picture) {
   return new Promise((resolve, reject) => {
     let database = firebase.database().ref(`users/${uid}/`);
     database.set({
       firstname : prenom,
       lastname  : nom,
       birthday  : birthday,
+      pictureURL  : picture.data.url
     })
     .then(() => {
       resolve();
