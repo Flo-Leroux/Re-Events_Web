@@ -1,5 +1,4 @@
 
-
 .uk-panel{
     text-align: center;
     background: black;
@@ -14,7 +13,7 @@
 }
 
 .uk-width-1-2{
-    margin-top:5px;
+    margin-top: 5px;
 }
 
 .uk-height-small{
@@ -45,7 +44,7 @@ textarea{
 }
 
 .uk-button{
-    margin-top: 0px;
+    margin-top: -5px;
 }
 
 .uk-form-medium{

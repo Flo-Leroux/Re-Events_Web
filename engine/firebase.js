@@ -83,7 +83,7 @@ function facebookLogin() {
     //console.log(result.user);
     var user = firebase.auth().currentUser;
     var prenom = user.providerData[0].displayName;
-
+  
     if (user != null) {
       user.updateEmail(user.providerData[0].email);
     }
@@ -92,6 +92,7 @@ function facebookLogin() {
     .then((user) => {
       return Promise.all([getFacebookUserInfo(),user.uid]);
     })
+    
     .then(([fbDatas, uid]) => {
       //console.log('INFO');
       //console.log(uid);
@@ -99,7 +100,7 @@ function facebookLogin() {
       return insertUser(uid, fbDatas.first_name, fbDatas.last_name, fbDatas.birthday, fbDatas.picture);
     })
     .then(() => {
-      window.location = "../organisateur/organisateur.html";
+      //window.location = "../organisateur/organisateur.html";
     })
   }).catch(error => {
     console.log(error.code);

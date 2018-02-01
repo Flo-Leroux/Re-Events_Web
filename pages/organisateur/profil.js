@@ -12,20 +12,32 @@ function userInfo(){
             document.getElementById("nom").innerHTML = lastname;
             document.getElementById("prenom").innerHTML = firstname;
             document.getElementById("birthday").innerHTML = birthday;
-            document.getElementsByName("statut").innerHTML = statut;
-            document.getElementById("bio").innerHTML = bio;
-            document.getElementById("photo").innerHTML = "<img src='" + picture + "'>";
+            document.getElementById("statut").innerHTML = statut;
+        
+            if(picture != null){
+                document.getElementById("photo").innerHTML = "<img src='" + picture + "'>";
+                
+            }else {
+                document.getElementById("photo").innerHTML = "<img src='../../assets/imgs/default-user.png'>";
+                
+            }
 
-        })
-    })
+            if(bio != null){
+                document.getElementById("bio").innerHTML = bio;
+            }else{
+                document.getElementById("bio").innerHTML = "Veuillez entrer une petite biographie de vous";
+            }
+        });
+    });
 }
 
 function update(){
     var statut = document.getElementById("statut").value;
     var bio = document.getElementById("bio").value;
-    updateUser(statut, bio);
-    UIkit.notification('<span uk-icon="icon: check"></span> Mise à jour du profil effectué', {
-        status:'success'
-    });
-    userInfo();
+        userInfo();    
+        updateUser(statut, bio);
+        UIkit.notification('<span uk-icon="icon: check"></span> Mise à jour du profil effectué', {
+            status:'success'
+        });
 }
+
