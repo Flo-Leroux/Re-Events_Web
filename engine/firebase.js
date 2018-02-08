@@ -92,19 +92,22 @@ function facebookLogin() {
     .then((user) => {
       return Promise.all([getFacebookUserInfo(),user.uid]);
     })
-    
     .then(([fbDatas, uid]) => {
-      //console.log('INFO');
-      //console.log(uid);
-      //console.log(fbDatas);
-      return insertUser(uid, fbDatas.first_name, fbDatas.last_name, fbDatas.birthday, fbDatas.picture);
+      return firebase.database().ref('/users/' +user.uid).once('value')
+      .then(snapshot => {
+          if(snapshot.val()) {
+            return true;
+          }
+          else {
+            return insertUser(uid, fbDatas.first_name, fbDatas.last_name, fbDatas.birthday, fbDatas.picture);
+          }
+      });
     })
     .then(() => {
-      //window.location = "../organisateur/organisateur.html";
+      window.location = "../organisateur/organisateur.html";
     })
   }).catch(error => {
-    console.log(error.code);
-    console.log(error.message);
+    console.log(error);
   })
 }
 
