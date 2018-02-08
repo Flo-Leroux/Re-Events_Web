@@ -17,8 +17,8 @@ function userInfo(){
             if(picture != null){
                 document.getElementById("photo").innerHTML = "<img src='" + picture + "'>";
                 
-            }else {
-                document.getElementById("photo").innerHTML = "<img src='../../assets/imgs/default-user.png'>";
+            }else { 
+                document.getElementById("photo").innerHTML = "assets/imgs/default-user.png";
                 
             }
 
@@ -39,5 +39,47 @@ function update(){
         UIkit.notification('<span uk-icon="icon: check"></span> Mise à jour du profil effectué', {
             status:'success'
         });
+}
+
+function userImg(){
+    UIkit.upload('.js-upload', {
+        url: '',
+        multiple: false,
+        allow: '*.(jpg|jpeg|gif|png)',
+
+        beforeSend: function () {
+            console.log('beforeSend', arguments);
+        },
+
+        beforeAll: function() {
+            console.log('beforeAll', arguments);
+        },
+
+        load: function () {
+            console.log('load', arguments);
+        },
+
+        error: function () {
+            console.log('error', arguments);
+        },
+
+        complete: function () {
+            console.log('complete', arguments);
+        },
+
+        loadStart: function () {
+            console.log('loadStart', arguments);
+        },
+
+        loadEnd: function () {
+            console.log('loadEnd', arguments);
+        },
+
+        completeAll: function () {
+            console.log('completeAll', arguments);
+
+            alert('telechargement terminer');
+        }
+    });
 }
 
