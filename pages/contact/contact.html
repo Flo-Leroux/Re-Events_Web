@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Re-Event</title>
+
+    <!-- Add UI Kit -->
+    <link rel="stylesheet" href="../../deploy/uiKit/uikit.min.css" />
+    <script src="../../deploy/uiKit/uikit.min.js"></script>
+    <script src="../../deploy/uiKit/uikit-icons.min.js"></script>
+    
+    <!-- Add Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+    <!-- update the version number as needed 
+    <script defer src="/__/firebase/4.8.0/firebase-app.js"></script>-->
+    <!-- include only the Firebase features as you need 
+    <script defer src="/__/firebase/4.8.0/firebase-auth.js"></script>
+    <script defer src="/__/firebase/4.8.0/firebase-database.js"></script>
+    <script defer src="/__/firebase/4.8.0/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/4.8.0/firebase-storage.js"></script>-->
+    <!-- initialize the SDK after all desired features are loaded 
+    <script defer src="/__/firebase/init.js"></script>-->
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-messaging.js"></script>
+
+    
+
+    <!-- Add My Styles -->
+    <link rel="stylesheet" href="../connexion/connexion.css" />
+    <link rel="stylesheet" href="contact.css" />
+
+    </head>
+    <body>
+        <div data-uk-sticky>
+            <nav class="uk-navbar-container" uk-navbar>
+                <div class="uk-navbar-left">
+                    <a class="uk-navbar-item uk-logo" href="../../index.html">Re-Event</a>
+                </div>
+                <div class="uk-navbar-right">
+                    <a class="uk-navbar-item" href="../connexion/connexion.html">
+                    <span class="uk-icon uk-margin-small-right" uk-icon="icon: sign-in"></span>
+                    Connexion</a>
+                    <a class="uk-navbar-item" href="../inscription/inscription.html">
+                    <span class="uk-icon uk-margin-small-right" uk-icon="icon: users"></span>
+                    Inscription</a>
+                </div>
+            </nav>
+        </div>
+    
+        <div class="uk-cover-background">
+            <img src="../../assets/imgs/banniere1.jpg">
+            <div class="uk-position-cover uk-flex uk-flex-center uk-flex-middle">
+                <form id="contact" class="uk-panel uk-panel-box uk-form uk-animation-scale-up" method="post" style="display: block;">
+                    <h2 id="title" class="title">Contact</h2>
+                    <div class="uk-form-row">
+                        <label>Nom et Prénom:</label><br>
+                        <input id="nomPrenom" class="js uk-form-medium " type="text" name="nomPrenom">
+                    </div>
+                    <div class="uk-form-row">
+                        <label>Votre Email:</label><br>
+                        <input id="email" class="js uk-form-medium" type="text" name="email">
+                    </div>
+                    <div class="uk-form-row">
+                        <label>Le sujet du mail:</label><br>
+                        <input id="subject" class="js uk-form-medium" type="text" name="subject">
+                    </div>
+                    <div class="uk-form-row">
+                        <label>Votre Message:</label><br>
+                        <textarea id="message" class="js uk-form-medium" type="text" name="message" style="height: 20vh;"></textarea>
+                    </div>                    
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

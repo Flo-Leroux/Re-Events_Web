@@ -1,0 +1,31 @@
+.uk-panel{
+    width: 80%;
+}
+
+.title{
+    margin: 10px;
+}
+
+.uk-form-row{
+    margin-left:40px;
+    text-align: left;
+    margin-top: 5px;
+
+}
+
+.uk-form-medium{
+    border-radius: 10px;
+}
+
+#subject, #message{
+    width: 90%;
+}
+
+#nomPrenom{
+    width: 40%;
+}
+
+
+
+
+
