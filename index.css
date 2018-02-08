@@ -19,7 +19,7 @@
 /* banniere */
 img {
     width: 100%;
-    height: 90vh;
+    height: 100vh;
 }
 
 .uk-overlay h1 {
@@ -72,6 +72,10 @@ img {
     height: 60vh;
 }
 
+#information{
+    align-self: center;
+}
+
 .information{
     margin-top: 40px;
     text-align: center;
@@ -82,5 +86,38 @@ img {
 }
 
 .info{
+    align-self: center;
     color: white;
 }
+
+#info{
+    margin-left: 40px;
+}
+
+.cercle{
+    width: 100%;
+    height: 40vh;
+}
+
+.etape{
+    text-align: center;
+    align-self: center;
+}
+
+.cercleChiffre{
+    text-align: center;
+    align-self: center;
+    height: 150px;
+    width: 150px;
+    border-radius: 80px;
+    font-weight: bold;
+    font-size: 100px;
+    color:white;
+    background-image: linear-gradient(to right, #64083e,#DA8CDC);
+}
+
+/*Media querie */
+
+
+
+

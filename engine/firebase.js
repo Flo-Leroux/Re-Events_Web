@@ -100,7 +100,7 @@ function facebookLogin() {
       return insertUser(uid, fbDatas.first_name, fbDatas.last_name, fbDatas.birthday, fbDatas.picture);
     })
     .then(() => {
-      //window.location = "../organisateur/organisateur.html";
+      window.location = "../organisateur/organisateur.html";
     })
   }).catch(error => {
     console.log(error.code);
