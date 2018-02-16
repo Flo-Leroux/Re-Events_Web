@@ -27,21 +27,22 @@
     $message = $_POST["message"];
     $name = $_POST["name"];
 
-    $Body .= "Name: ";
-    $Body .= $name;
-    $Body .= "\n";
-     
-    $Body .= "Message: ";
-    $Body .= $message;
-    $Body .= "\n";
-
-    $headers  = "CC: " . $email . " \r\n"; // ici l'expediteur du mail
-    $headers .= "Content-Type: text/plain; charset=\"ISO-8859-1\"; DelSp=\"Yes\"; format=flowed /r/n";
-    $headers .= "Content-Disposition: inline \r\n";
-    $headers .= "Content-Transfer-Encoding: 7bit \r\n";
-    $headers .= "MIME-Version: 1.0";
-
-    mail($EmailTo, $Subject,$message,$headers);
+    $headers  = 'MIME-Version: 1.0' . "\n"; // Version MIME
+    $headers .= 'Content-type: text/html; charset=ISO-8859-1'."\n"; // l'en-tete Content-type pour le format HTML
+    $headers .= 'Reply-To: '.$email."\n"; // Mail de reponse
+    $headers .= 'From: "Re-Events"<'.$email.'>'."\n"; // Expediteur
+    $headers .= 'Delivered-to: '.$EmailTo."\n"; // Destinataire      
+    $message = '<div style="width: 100%; text-align: center; font-weight: bold">'.$message.'</div>';
+    if (mail($EmailTo, $Subject, $message, $headers)) // Envoi du message
+    {
+         //echo 'ok';
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+    }
+    else // Non envoyé
+    {
+        //echo 'Nope';            
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+    }
 
 
 

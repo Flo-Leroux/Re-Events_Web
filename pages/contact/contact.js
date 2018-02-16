@@ -33,9 +33,9 @@ function submitForm(){
     });
   }else {
     $.ajax({
-      type: "POST",
-      url : "contact.php",
-      data: "name=" + name + "&subject=" + subject +  "&email=" + email + "&message=" + message,
+      type: 'POST',
+      url : 'contact.php',
+      data: $('#contact').serialize(),
       success: function(){
         console.log("Formulaire bien envoyer");
       },
@@ -46,7 +46,7 @@ function submitForm(){
   }
 }
 
-$("#contact").submit(function(event){
+$('#contact').submit(function(event){
   // cancels the form submission
   event.preventDefault();
   submitForm();
