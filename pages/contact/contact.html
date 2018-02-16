@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="../../deploy/uiKit/uikit.min.css" />
     <script src="../../deploy/uiKit/uikit.min.js"></script>
     <script src="../../deploy/uiKit/uikit-icons.min.js"></script>
+
+    <!-- Add jQuery -->
+    <script src="../../deploy/jQuery/jquery-3.3.1.min.js"></script>
     
     <!-- Add Firebase -->
     <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
@@ -72,10 +75,10 @@
                     </div>
                     <div class="uk-form-row">
                         <label>Votre Message:</label><br>
-                        <textarea id="message" class="js uk-form-medium" type="text" name="message" style="height: 30vh;"></textarea>
+                        <textarea id="message" class="js uk-form-medium" type="text" name="message" style="height: 20vh;"></textarea>
                     </div> 
                     <div class="uk-form-row submit">
-                        <input id="submit" class="uk-button" onClick='sendMail()' type='button' value='Envoyer le message'>
+                        <input id="submit" class="uk-button" type='submit' value='Envoyer le message'>
                     </div>                   
                 </form>
             </div>
