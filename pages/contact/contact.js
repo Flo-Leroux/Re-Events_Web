@@ -34,13 +34,14 @@ function submitForm(){
   }else {
     $.ajax({
       type: 'POST',
-      url : 'contact.php',
+      url : 'https://flo-leroux.fr/Re-Events/contact.php',
       data: $('#contact').serialize(),
-      success: function(){
-        console.log("Formulaire bien envoyer");
-      },
       error: function(){
-        console.log("Le formulaire a echouer");
+        console.log("Formulaire bien envoyer");
+        UIkit.notification('<span uk-icon="icon: ban"></span> Le message a bien été envoyé', {
+          status:'success'
+        });
+        //window.location = "../../index.html";
       }
     });
   }

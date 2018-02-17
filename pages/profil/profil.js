@@ -18,7 +18,7 @@ function userInfo(){
                 document.getElementById("photo").innerHTML = "<img src='" + picture + "'>";
                 
             }else { 
-                document.getElementById("photo").innerHTML = "assets/imgs/default-user.png";
+                document.getElementById("photo").innerHTML = "<img src='../../assets/imgs/default-user.png'>";
                 
             }
 
