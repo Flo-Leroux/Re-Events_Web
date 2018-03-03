@@ -21,8 +21,7 @@ img{
 
 .uk-panel{
     text-align: center;
-    background: black;
-    opacity: 0.8;
+    background: rgba(0,0,0,0.8);
     width: 400px;
     height: 500px;
     border-radius:50px;
