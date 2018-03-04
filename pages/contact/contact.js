@@ -41,7 +41,7 @@ function submitForm(){
         UIkit.notification('<span uk-icon="icon: ban"></span> Le message a bien été envoyé', {
           status:'success'
         });
-        //window.location = "../../index.html";
+        window.location = "../../index.html";
       }
     });
   }
